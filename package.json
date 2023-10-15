@@ -6,6 +6,7 @@
   "author": "Hyewon Ham",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
   }
 }
