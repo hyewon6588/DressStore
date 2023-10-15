@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/hyewon6588/DressStore.git",
   "author": "Hyewon Ham",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
 }
