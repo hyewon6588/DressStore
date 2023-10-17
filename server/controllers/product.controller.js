@@ -39,6 +39,25 @@ const productByID = async (req, res, next, id) => {
         }) 
         }
         }
+
+//test
+// const productByName = async (req, res, next, id) => { 
+//             try {
+//             let product = await Product.findById(id) 
+//             if (!product)
+//             return res.status('400').json({ 
+//             error: "Product not found"
+//             })
+//             req.profile = product 
+//             next()
+//             } catch (err) {
+//             return res.status('400').json({ 
+//             error: "Could not retrieve product"
+//             }) 
+//             }
+//             }
+
+
 const read = (req, res) => {
         // req.profile.hashed_password = undefined
         // req.profile.salt = undefined
@@ -62,7 +81,7 @@ const read = (req, res) => {
         const remove = async (req, res) => { 
             try {
             let product = req.profile
-            let deletedProduct = await product.delete()
+            let deletedProduct = await product.deleteOne()
             // deletedProduct.hashed_password = undefined
             // deletedUser.salt = undefined
             res.json(deletedProduct) 
