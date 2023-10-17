@@ -59,5 +59,17 @@ const update = async (req, res) => {
         })
         } 
         }
-const remove = (req, res, next) => {  }
+        const remove = async (req, res) => { 
+            try {
+            let category = req.profile
+            let deletedCategory = await category.remove() 
+            // deletedUser.hashed_password = undefined 
+            // deletedUser.salt = undefined
+            res.json(deletedCategory) 
+            } catch (err) {
+            return res.status(400).json({
+            error: errorHandler.getErrorMessage(err) 
+            })
+            } 
+            }
 export default { create, categoryByID, read, list, remove, update }
