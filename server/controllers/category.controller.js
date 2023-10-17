@@ -44,6 +44,20 @@ const read = (req, res) => {
     // req.profile.salt = undefined
     return res.json(req.profile) 
     }
-const update = (req, res, next) => {  }
+const update = async (req, res) => { 
+        try {
+        let category = req.profile
+        category = extend(category, req.body) 
+        // user.updated = Date.now() 
+        await user.save()
+        // user.hashed_password = undefined 
+        // user.salt = undefined
+        res.json(category) 
+        } catch (err) {
+        return res.status(400).json({
+        error: errorHandler.getErrorMessage(err) 
+        })
+        } 
+        }
 const remove = (req, res, next) => {  }
 export default { create, categoryByID, read, list, remove, update }
