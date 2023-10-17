@@ -18,7 +18,7 @@ const list = async (req, res,id) => {
 	try {
         const name = req.query.name;
 
-        var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
+        var condition = name ? { name: { $regex:new RegExp(name), $options: "i" } } : {};
 
         let products = await Product.find(condition).select('name description price published category')
 	res.json(products)
