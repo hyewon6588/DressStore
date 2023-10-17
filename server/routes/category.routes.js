@@ -1,5 +1,5 @@
 import express from 'express'
-import productCtrl from '../controllers/category.controller.js'
+import categoryCtrl from '../controllers/category.controller.js'
 const router = express.Router()
 router.route('/api/categories') 
 .get(categoryCtrl.list)
@@ -14,5 +14,5 @@ router.route('/api/categories').get(categoryCtrl.list)
 router.param('categoryId', categoryCtrl.categoryByID)
 router.route('/api/categories/:categoryId').get(categoryCtrl.read)
 router.route('/api/categories/:categoryId').put(categoryCtrl.update)
-router.route('/api/categories/:categoryId').delete(cateegoryCtrl.remove)
+router.route('/api/categories/:categoryId').delete(categoryCtrl.remove)
 export default router
