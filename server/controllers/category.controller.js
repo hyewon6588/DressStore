@@ -1,5 +1,5 @@
 import Category from '../models/category.model.js'
-import extend from 'lodash/extend'
+import extend from 'lodash/extend.js'
 import errorHandler from '../helpers/dbErrorHandler.js'
 const create = async (req, res) => { 
     const category = new Category(req.body) 

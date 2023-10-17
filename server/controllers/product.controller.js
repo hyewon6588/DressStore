@@ -1,5 +1,5 @@
 import Product from '../models/product.model.js'
-import extend from 'lodash/extend'
+import extend from 'lodash/extend.js'
 import errorHandler from '../helpers/dbErrorHandler.js'
 const create = async (req, res) => { 
     const product = new Product(req.body) 
