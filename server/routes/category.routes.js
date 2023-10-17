@@ -10,4 +10,5 @@ router.route('/api/categories/:categoryId')
 .delete(categoryCtrl.remove)
 router.param('categoryId', categoryCtrl.categoryByID)
 router.route('/api/categories').post(categoryCtrl.create)
+router.route('/api/categories').get(categoryCtrl.list)
 export default router
