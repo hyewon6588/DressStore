@@ -4,7 +4,7 @@ import errorHandler from '../helpers/dbErrorHandler.js'
 const create = async (req, res) => { 
     const product = new Product(req.body) 
     try {
-    await user.save()
+    await product.save()
     return res.status(200).json({ 
     message: "Successfully added product!"
     })
@@ -40,7 +40,7 @@ const productByID = async (req, res, next, id) => {
         }
         }
 const read = (req, res) => {
-        // req.profile.hashed_password = undefined 
+        // req.profile.hashed_password = undefined
         // req.profile.salt = undefined
         return res.json(req.profile) 
     }
@@ -49,7 +49,7 @@ const read = (req, res) => {
         let product = req.profile
         product = extend(product, req.body) 
         // user.updated = Date.now() 
-        await user.save()
+        await product.save()
         // user.hashed_password = undefined
         // user.salt = undefined
         res.json(product) 
@@ -62,8 +62,8 @@ const read = (req, res) => {
         const remove = async (req, res) => { 
             try {
             let product = req.profile
-            let deletedProduct = await product.deleteOne()
-            // deletedProduct.hashed_password = undefined 
+            let deletedProduct = await product.delete()
+            // deletedProduct.hashed_password = undefined
             // deletedUser.salt = undefined
             res.json(deletedProduct) 
             } catch (err) {

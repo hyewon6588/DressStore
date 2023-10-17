@@ -7,12 +7,14 @@ import helmet from 'helmet'
 import Template from './../template.js'
 import productRoutes from './routes/product.routes.js'
 import categoryRoutes from './routes/category.routes.js'
+
 const app = express()
 
 //...
 app.get('/', (req, res) => {
     res.status(200).send(Template()) 
     })
+
 //...
 
 app.use(express.json());
