@@ -62,7 +62,7 @@ const update = async (req, res) => {
         const remove = async (req, res) => { 
             try {
             let category = req.profile
-            let deletedCategory = await category.remove() 
+            let deletedCategory = await category.deleteOne()
             // deletedUser.hashed_password = undefined 
             // deletedUser.salt = undefined
             res.json(deletedCategory) 
