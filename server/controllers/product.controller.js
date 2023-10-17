@@ -14,9 +14,13 @@ const create = async (req, res) => {
     })
     } 
 }
-const list = async (req, res) => { 
+const list = async (req, res,id) => { 
 	try {
-	let products = await Product.find().select('name description price published category') 
+        const name = req.query.name;
+
+        var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
+
+        let products = await Product.find(condition).select('name description price published category')
 	res.json(products)
 	} catch (err) {
 	return res.status(400).json({
@@ -40,22 +44,6 @@ const productByID = async (req, res, next, id) => {
         }
         }
 
-//test
-// const productByName = async (req, res, next, id) => { 
-//             try {
-//             let product = await Product.findById(id) 
-//             if (!product)
-//             return res.status('400').json({ 
-//             error: "Product not found"
-//             })
-//             req.profile = product 
-//             next()
-//             } catch (err) {
-//             return res.status('400').json({ 
-//             error: "Could not retrieve product"
-//             }) 
-//             }
-//             }
 
 
 const read = (req, res) => {
@@ -91,4 +79,4 @@ const read = (req, res) => {
             })
             } 
             }
-export default { create, productByID, read, list, remove, update }
+export default { create, productByID,read, list, remove, update }

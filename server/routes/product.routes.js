@@ -9,6 +9,13 @@ router.route('/api/products/:productId')
 .get(productCtrl.list)
 .put(productCtrl.update) 
 .delete(productCtrl.remove)
+
+router.route('/api/products/:productName')
+.get(productCtrl.read)
+.get(productCtrl.list)
+.put(productCtrl.update) 
+.delete(productCtrl.remove)
+
 router.param('productId', productCtrl.productByID)
 router.route('/api/products').post(productCtrl.create)
 router.route('/api/products').get(productCtrl.list)
