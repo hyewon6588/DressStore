@@ -69,7 +69,7 @@ const read = (req, res) => {
         const remove = async (req, res) => { 
             try {
             let product = req.profile
-            let deletedProduct = await product.deleteOne()
+            let deletedProduct = await product.remove()
             // deletedProduct.hashed_password = undefined
             // deletedUser.salt = undefined
             res.json(deletedProduct) 
