@@ -1,5 +1,6 @@
 {
   "name": "DressStore",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/hyewon6588/DressStore.git",

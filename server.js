@@ -1,7 +1,7 @@
 import config from './config/config.js' 
 import app from './server/express.js'
 app.get("/", (req, res) => {
-res.json({ message: "Welcome to User application." });
+res.json({message:"Welcome to DressStore application."});
 });
 app.listen(config.port, (err) => { 
 if (err) {
