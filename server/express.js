@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
     })
 //...
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/',productRoutes)
 app.use('/',categoryRoutes)
 app.use(bodyParser.json())
