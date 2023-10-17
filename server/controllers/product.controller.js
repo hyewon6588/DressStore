@@ -1,6 +1,6 @@
 import Product from '../models/product.model.js'
 import extend from 'lodash/extend'
-import errorHandler from './error.controller'
+import errorHandler from '../helpers/dbErrorHandler.js'
 const create = async (req, res) => { 
     const product = new Product(req.body) 
     try {
