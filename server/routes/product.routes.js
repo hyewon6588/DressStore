@@ -12,4 +12,5 @@ router.param('productId', productCtrl.productByID)
 router.route('/api/products').post(productCtrl.create)
 router.route('/api/products').get(productCtrl.list)
 router.param('productId', productCtrl.productByID)
+router.route('/api/products/:productId').get(productCtrl.read)
 export default router
