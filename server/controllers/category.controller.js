@@ -14,7 +14,16 @@ const create = async (req, res) => {
     })
     } 
 }
-const list = (req, res) => { }
+const list = async (req, res) => { 
+	try {
+	let categories = await Category.find().select('name') 
+	res.json(categories)
+	} catch (err) {
+	return res.status(400).json({
+	error: errorHandler.getErrorMessage(err) 
+	})
+	} 
+	}
 const categoryByID = (req, res, next, id) => {  }
 const read = (req, res) => { }
 const update = (req, res, next) => {  }

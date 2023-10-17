@@ -14,7 +14,16 @@ const create = async (req, res) => {
     })
     } 
 }
-const list = (req, res) => { }
+const list = async (req, res) => { 
+	try {
+	let products = await Product.find().select('name description price published category') 
+	res.json(products)
+	} catch (err) {
+	return res.status(400).json({
+	error: errorHandler.getErrorMessage(err) 
+	})
+	} 
+	}
 const productByID = (req, res, next, id) => {  }
 const read = (req, res) => { }
 const update = (req, res, next) => {  }
