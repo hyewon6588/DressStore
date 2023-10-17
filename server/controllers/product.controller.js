@@ -24,7 +24,21 @@ const list = async (req, res) => {
 	})
 	} 
 	}
-const productByID = (req, res, next, id) => {  }
+const productByID = async (req, res, next, id) => { 
+        try {
+        let product = await Product.findById(id) 
+        if (!product)
+        return res.status('400').json({ 
+        error: "Product not found"
+        })
+        req.profile = product 
+        next()
+        } catch (err) {
+        return res.status('400').json({ 
+        error: "Could not retrieve product"
+        }) 
+        }
+        }
 const read = (req, res) => { }
 const update = (req, res, next) => {  }
 const remove = (req, res, next) => {  }

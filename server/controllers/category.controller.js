@@ -24,7 +24,21 @@ const list = async (req, res) => {
 	})
 	} 
 	}
-const categoryByID = (req, res, next, id) => {  }
+    const categoryByID = async (req, res, next, id) => { 
+        try {
+        let category = await Category.findById(id) 
+        if (!category)
+        return res.status('400').json({ 
+        error: "Category not found"
+        })
+        req.profile = category 
+        next()
+        } catch (err) {
+        return res.status('400').json({ 
+        error: "Could not retrieve category"
+        }) 
+        }
+        }
 const read = (req, res) => { }
 const update = (req, res, next) => {  }
 const remove = (req, res, next) => {  }
